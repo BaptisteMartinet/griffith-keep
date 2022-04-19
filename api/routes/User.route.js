@@ -9,7 +9,6 @@ const { User } = require('../models');
  */
 router.post('/register', async (req, res) => {
   const { password, ...args } = req.body;
-  console.log('test')
   if (await User.exists({ email: args.email }))
     return res.status(409).send('User already exists.');
   const hashedPassword = await bcrypt.hash(password, 10);
