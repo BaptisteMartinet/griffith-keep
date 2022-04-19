@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
     ...args,
     password: hashedPassword,
   });
-  res.status(201).send('Account successfully created.');
+  res.sendStatus(201);
 });
 
 /**
@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
     return res.status(400).send('Invalid credentials.');
   const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
   res.cookie('x-access-token', token, { expires: new Date(Date.now() + 86400000), httpOnly: true });
-  res.send('Successfully logged in.')
+  res.sendStatus(200);
 });
 
 module.exports = router;
