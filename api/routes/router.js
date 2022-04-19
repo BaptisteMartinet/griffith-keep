@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const { UserRouter } = require('./index');
 
-router.get('/test', (req, res) => {
-  res.send('Hello world');
-});
+router.use('/user', UserRouter);
 
 module.exports = router;
