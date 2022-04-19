@@ -16,7 +16,7 @@ const routes = require('./api/routes/router');
   // Setting up Express
   const app = express();
   app.use(express.json());
-  app.use(cookieParser);
+  app.use(cookieParser());
   app.use('/api', routes);
   app.use(express.static(`${__dirname}/dist/griffith-keep`, { extensions: ['html'] }));
   app.listen(PORT, () => { console.info(`Server running on port: ${PORT}`); });
