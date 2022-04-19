@@ -1,6 +1,6 @@
 # Griffith Keep
 
-Griffith Keep is a clone of [Google Keep](https://keep.google.com) made at [Griffith College Dublin](https://www.griffith.ie/).
+Griffith Keep is a [Google Keep](https://keep.google.com) clone made at [Griffith College Dublin](https://www.griffith.ie/).
 
 ## Setup steps
  - [Setup the Angular CLI](https://angular.io/guide/setup-local)
@@ -11,7 +11,7 @@ Griffith Keep is a clone of [Google Keep](https://keep.google.com) made at [Grif
  - use `ng generate component component-name` to create a new angular component.
  - Commit your work with git:
 ```
-git add src
+git add ./src/
 git commit -m "message"
 git push
 ```
