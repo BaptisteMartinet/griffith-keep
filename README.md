@@ -5,7 +5,7 @@ Run the project using: `ng serve --open`.
 
 Use this command to generate a new component: `ng generate component component-name`.
 
-Commit your work by runnung these git commands:
+Commit your work by running these git commands:
 ```
 git add src
 git commit -m "message"
