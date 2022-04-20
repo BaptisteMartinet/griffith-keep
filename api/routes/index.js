@@ -1,7 +1,2 @@
-const UserRouter = require('./User.route');
-const NoteRouter = require('./Note.route');
-
-module.exports = {
-  UserRouter,
-  NoteRouter,
-};
+exports.UserRouter = require('./User.route');
+exports.NoteRouter = require('./Note.route');
