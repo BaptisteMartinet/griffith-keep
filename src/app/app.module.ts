@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { Globals } from './globals';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
 
@@ -18,7 +19,7 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     SharedModule,
   ],
-  providers: [],
+  providers: [ Globals ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
