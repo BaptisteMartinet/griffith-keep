@@ -7,7 +7,7 @@ const NoteSchema = new Schema({
   title: { type: String, required: true },
   body: { type: String, required: true },
   pinned: { type: Boolean, required: false, default: false },
-  expirationDate: { type: Date, required: false },
+  completionDate: { type: Date, required: false },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Note', NoteSchema, 'notes');
