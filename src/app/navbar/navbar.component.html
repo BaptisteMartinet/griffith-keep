@@ -9,6 +9,6 @@
     </form>
   </div>
   <div class='right-container'>
-    <app-user-card firstName="Baptiste" lastName="Martinet"></app-user-card>
+    <app-user-card *ngIf="globals.authenticated" [firstName]="globals.user.firstName" [lastName]="globals.user.lastName"></app-user-card>
   </div>
 </div>

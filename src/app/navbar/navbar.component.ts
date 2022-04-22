@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Globals } from '../globals';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { NgForm } from '@angular/forms';
 })
 export class NavbarComponent {
 
-  constructor() { }
+  constructor(public globals: Globals) { }
 
   onSubmit(f: NgForm) {
     console.log(f.value.search);
