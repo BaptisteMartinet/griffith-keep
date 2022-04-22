@@ -1,0 +1,11 @@
+<div class='container'>
+  <div class='left-container'>
+    <a href="/" class='logo-link'>
+      <img src="/assets/griffith-keep-logo-file.png" alt="app logo" />
+      <span>Keep</span>
+    </a>
+    <form #f='ngForm' (ngSubmit)="onSubmit(f)" novalidate>
+      <input type="search" name="search" id="search" placeholder='Search' ngModel>
+    </form>
+  </div>
+</div>
