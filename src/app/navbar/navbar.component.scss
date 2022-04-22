@@ -37,7 +37,7 @@
       margin-left: 6em;
 
       input[type=search] {
-        width: 40rem;
+        width: 30vw;
         color: white;
         background-color: #525355;
         border: 1px solid transparent;
@@ -45,7 +45,7 @@
         outline: none;
         padding: .9em;
         font-size: 1rem;
-        transition: .2s;
+        transition: background-color .2s;
       }
 
       input[type=search]::placeholder {
