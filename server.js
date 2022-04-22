@@ -16,7 +16,7 @@ const routes = require('./api/routes/router');
   console.info('Database successfully connected.');
   // Setting up Express
   const app = express();
-  app.use(cors({ origin: 'http://localhost:4200' }));
+  app.use(cors({ origin: 'http://localhost:4200', credentials: true }));
   app.use(express.json());
   app.use(cookieParser());
   app.use('/api', routes);
