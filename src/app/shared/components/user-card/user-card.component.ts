@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-card',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-card.component.scss']
 })
 export class UserCardComponent implements OnInit {
-
-  constructor() { }
+  @Input() firstName!: string;
+  @Input() lastName!: string;
+  public initials!: string;
 
   ngOnInit(): void {
+    this.initials = this.firstName.charAt(0) + this.lastName.charAt(0);
   }
-
 }
