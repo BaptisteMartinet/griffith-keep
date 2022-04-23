@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -8,7 +9,9 @@ import { environment } from 'src/environments/environment';
 })
 export default class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: Title) {
+    this.titleService.setTitle('Griffith Keep - Login');
+  }
 
   ngOnInit(): void {}
 
