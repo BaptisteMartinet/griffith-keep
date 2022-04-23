@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HomepageComponent, LoginComponent } from './views';
-import { NavbarComponent, UserCardComponent } from './components';
+import {
+  NavbarComponent,
+  UserCardComponent,
+  NoteCreateComponent,
+} from './components';
 import { AuthService } from './services';
 
 @NgModule({
@@ -16,6 +19,7 @@ import { AuthService } from './services';
     LoginComponent,
     NavbarComponent,
     UserCardComponent,
+    NoteCreateComponent,
   ],
   imports: [
     BrowserModule,
