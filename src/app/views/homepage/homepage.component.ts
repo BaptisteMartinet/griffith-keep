@@ -19,7 +19,7 @@ export default class HomepageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.userChange.subscribe(user => { if (!user) this.router.navigate([ 'login' ]); });
+    this.authService.userSubject.subscribe(user => { if (!user) this.router.navigate([ 'login' ]); });
   }
 
 }

@@ -20,7 +20,7 @@ export default class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.userChange.subscribe(user => { if (user) this.router.navigate([ '/' ]); });
+    this.authService.userSubject.subscribe(user => { if (user) this.router.navigate([ '/' ]); });
   }
 
   public async submitLogin() {
