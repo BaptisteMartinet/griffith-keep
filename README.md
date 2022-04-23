@@ -8,7 +8,9 @@ Griffith Keep is a [Google Keep](https://keep.google.com) clone made at [Griffit
  - Run the project using: `ng serve --open`.
 
 ## Workflow
+ - use `ng generate module module-name` to create a module
  - use `ng generate component component-name` to create a new angular component.
+ - use `ng generate service service-name` to create a service
  - Commit your work with git:
 ```
 git add ./src/
