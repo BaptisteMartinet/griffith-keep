@@ -1,32 +1,30 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Globals } from './globals';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <app-navbar></app-navbar>
+    <router-outlet></router-outlet>
+  `,
 })
 export class AppComponent implements OnInit {
 
-  constructor (public globals: Globals) {}
+  constructor(public globals: Globals, public router: Router) { }
 
   async ngOnInit() {
-    // fake login
-    // const test = await fetch(`${environment.API_URI}/user/login`, {
-    //   method: 'POST',
-    //   credentials: 'include',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({
-    //     email: 'baptiste.martinet@student.griffith.ie',
-    //     password: 'test',
-    //   }),
-    // });
-    // console.log(test.ok);
-    const userRes = await fetch(`${environment.API_URI}/currentUser`, { credentials: 'include' });
-    if (!userRes.ok)
-      return;
-    this.globals.user = await userRes.json();
-    this.globals.authenticated = true;
+    try {
+      const userRes = await fetch(`${environment.API_URI}/currentUser`, { credentials: 'include' });
+      if (userRes.ok) {
+        this.globals.user = await userRes.json();
+        this.globals.authenticated = true;
+      }
+    } catch { }
+    if (!this.globals.authenticated)
+      this.router.navigate(['login']);
+    else
+      this.router.navigate([ '/' ]);
   }
 }

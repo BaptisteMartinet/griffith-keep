@@ -3,21 +3,24 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { Globals } from './globals';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SharedModule } from './shared/shared.module';
+import { AppComponent } from './app.component';
+
+import { HomepageComponent, LoginComponent } from './views';
+import { NavbarComponent, UserCardComponent } from './components';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    HomepageComponent,
+    LoginComponent,
+    NavbarComponent,
+    UserCardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SharedModule,
   ],
   providers: [ Globals ],
   bootstrap: [AppComponent]

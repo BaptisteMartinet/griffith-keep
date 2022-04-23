@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Globals } from '../globals';
+import { Globals } from '../../globals';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export default class NavbarComponent {
 
   constructor(public globals: Globals) { }
 

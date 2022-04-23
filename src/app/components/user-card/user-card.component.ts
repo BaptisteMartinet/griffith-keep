@@ -5,7 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './user-card.component.html',
   styleUrls: ['./user-card.component.scss']
 })
-export class UserCardComponent implements OnInit {
+export default class UserCardComponent implements OnInit {
   @Input() firstName!: string;
   @Input() lastName!: string;
   public initials!: string;
