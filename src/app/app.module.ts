@@ -3,11 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { Globals } from './globals';
 import { AppComponent } from './app.component';
 
 import { HomepageComponent, LoginComponent } from './views';
 import { NavbarComponent, UserCardComponent } from './components';
+import { AuthService } from './services';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { NavbarComponent, UserCardComponent } from './components';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [ Globals ],
+  providers: [ AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

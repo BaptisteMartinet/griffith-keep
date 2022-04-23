@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Globals } from '../../globals';
+import { AuthService } from 'src/app/services';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +9,7 @@ import { Globals } from '../../globals';
 })
 export default class NavbarComponent {
 
-  constructor(public globals: Globals) { }
+  constructor(public authService: AuthService) { }
 
   onSubmit(f: NgForm) {
     console.log(f.value.search);
