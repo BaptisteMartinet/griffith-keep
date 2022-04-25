@@ -1,1 +1,8 @@
-<p>note-create works!</p>
+<form #f='ngForm' (ngSubmit)="onSubmit(f)">
+  <input type="text" name="title" id="title" placeholder='Title' [hidden]='closed' ngModel>
+  <textarea name="body" id="body" placeholder='Create a note...' rows='1' #ta (input)="autoResizeBody(ta)" (focus)="onBodyFocus()" ngModel></textarea>
+  <input type="datetime-local" name="completionDate" id="completionDate" [hidden]='closed' ngModel>
+  <div class='contols-container'>
+    <input type="submit" value="Close" [hidden]="closed">
+  </div>
+</form>
