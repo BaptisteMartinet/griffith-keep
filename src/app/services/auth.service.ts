@@ -36,7 +36,7 @@ export default class AuthService {
     if (!userRes.ok)
       return this.userSubject.next(null);
     const userJson = await userRes.json();
-    this.userSubject.next(userJson);
+    this.userSubject.next(userJson as UserT);
   }
 
   async register(args: RegisterArgsT): Promise<boolean> {
@@ -55,6 +55,8 @@ export default class AuthService {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(args),
     });
+    const loginJson = await loginRes.json();
+    this.userSubject.next(loginJson as UserT);
     return loginRes.ok;
   }
 
