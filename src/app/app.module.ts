@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomepageComponent, LoginComponent } from './views';
+import { HomepageComponent, RegisterComponent, LoginComponent } from './views';
 import {
   NavbarComponent,
   UserCardComponent,
@@ -16,6 +16,7 @@ import { AuthService } from './services';
   declarations: [
     AppComponent,
     HomepageComponent,
+    RegisterComponent,
     LoginComponent,
     NavbarComponent,
     UserCardComponent,

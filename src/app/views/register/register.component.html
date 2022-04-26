@@ -1,0 +1,18 @@
+<main>
+  <section class='container'>
+    <form #f="ngForm" (ngSubmit)="submitRegister(f)">
+      <div class="title-container">
+        <h1>Sign up</h1>
+      </div>
+      <label for="firstName">First name</label>
+      <input type="text" name="firstName" id="firstName" placeholder="First name" autocomplete="current-firstname" ngModel>
+      <label for="lastName">Last name</label>
+      <input type="text" name="lastName" id="lastName" placeholder="Last name" autocomplete="current-lastname" ngModel>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="Email" autocomplete="current-email" ngModel>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" placeholder="Password" autocomplete="current-password" ngModel>
+      <input type="submit" value="Register">
+    </form>
+  </section>
+</main>
