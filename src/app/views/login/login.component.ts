@@ -29,7 +29,7 @@ export default class LoginComponent implements OnInit {
       password: 'test',
     });
     if (loginStatus)
-      window.location.replace('/');
+      this.router.navigate([ '/' ]);
   }
 
 }
