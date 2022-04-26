@@ -1,7 +1,18 @@
-<p>login works!</p>
-<br>
-<br>
-<br>
-<br>
-<br>
-<button (click)="submitLogin()">Log me in</button>
+<main>
+  <div class="container">
+    <section class="left-container">
+      <form #f="ngForm" (ngSubmit)="submitLogin(f)">
+        <h1>Sign in</h1>
+        <input type="email" name="email" id="email" placeholder="Email" autocomplete="email" ngModel>
+        <input type="password" name="password" id="password" placeholder="Password" autocomplete="current-password"
+          ngModel>
+        <input type="submit" value="Sign in">
+      </form>
+    </section>
+    <section class="right-container">
+      <h1>Hello, Friend!</h1>
+      <p>Griffith Keep is the best solution for managing notes and organizing tasks with your team.</p>
+      <a routerLink="/register">Sign up</a>
+    </section>
+  </div>
+</main>

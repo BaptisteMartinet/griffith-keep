@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { environment } from 'src/environments/environment';
+import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services';
 
 @Component({
@@ -20,16 +20,19 @@ export default class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.userSubject.subscribe(user => { if (user) this.router.navigate([ '/' ]); });
+    this.authService.userSubject.subscribe(user => { if (user) this.router.navigate(['/']); });
   }
 
-  public async submitLogin() {
+  public async submitLogin(f: NgForm) {
+    const { email, password } = f.value;
+    if (!email || !password)
+      return;
     const loginStatus = await this.authService.login({
-      email: 'baptiste.martinet@student.griffith.ie',
-      password: 'test',
+      email,
+      password,
     });
     if (loginStatus)
-      this.router.navigate([ '/' ]);
+      this.router.navigate(['/']);
   }
 
 }

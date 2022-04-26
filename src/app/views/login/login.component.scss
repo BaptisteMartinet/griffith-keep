@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+
+  .left-container {
+    flex: 1;
+    height: 100vh;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2em;
+      border: 1px solid transparent;
+      box-shadow: 0 13px 27px -5px rgb(50 50 93 / 25%), 0 8px 16px -8px rgb(0 0 0 / 30%);
+
+      h1 {
+        font-size: var(--fs-xl);
+        font-weight: bold;
+        margin-bottom: 1em;
+      }
+
+      input[type=email],
+      input[type=password] {
+        min-width: 30rem;
+        margin: 1em 0;
+        padding: 1em 2em;
+        border: none;
+        background-color: #eee;
+        font-size: var(--fs-400);
+      }
+
+      input[type=submit] {
+        margin-top: 1em;
+        border-radius: 20px;
+        background-color: #FF4B2B;
+        color: #FFFFFF;
+        font-size: var(--fs-500);
+        border: none;
+        font-weight: bold;
+        padding: .6em 2em;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+        cursor: pointer;
+        outline: none;
+
+        &:hover,
+        &:focus {
+          transform: scale(1.05);
+        }
+
+        &:active {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+
+  .right-container {
+    flex: 1;
+    height: 100vh;
+    background: #FF416C;
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h1 {
+      font-size: var(--fs-xxl);
+      font-weight: bold;
+      margin-bottom: .5em;
+    }
+
+    p {
+      font-size: var(--fs-500);
+      max-width: 40rem;
+      margin-bottom: 2em;
+    }
+
+    a {
+      background: none;
+      border: 1px solid white;
+      padding: .5em 2em;
+      border-radius: 24px;
+      font-size: var(--fs-500);
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: .1s ease-in;
+
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+  }
+}
