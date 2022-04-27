@@ -10,7 +10,7 @@ import {
   UserCardComponent,
   NoteCreateComponent,
 } from './components';
-import { AuthService } from './services';
+import { AuthService, NoteService } from './services';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { AuthService } from './services';
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [ AuthService ],
+  providers: [ AuthService, NoteService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
