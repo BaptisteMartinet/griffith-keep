@@ -6,7 +6,7 @@ const { User } = require('../models');
 const router = express.Router();
 
 router.get('/currentUser', auth, async (req, res) => {
-  const user = await User.findById(req.ctx.userId);
+  const user = await User.findById(req.ctx.user);
   if (!user)
     return res.sendStatus(404);
   res.json(user);
@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
     return res.status(404).send('User not found.');
   if (!(await bcrypt.compare(password, user.password)))
     return res.status(400).send('Invalid credentials.');
-  const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
+  const token = jwt.sign({ user: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
   res.cookie('x-access-token', token, { expires: new Date(Date.now() + 86400000), httpOnly: true });
   res.json(user);
 });
