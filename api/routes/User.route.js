@@ -4,6 +4,17 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 const { User } = require('../models');
 
+router.get('/currentUser', auth, async (req, res) => {
+  const user = await User.findById(req.ctx.userId);
+  if (!user)
+    return res.sendStatus(404);
+  res.json(user);
+});
+
+router.get('/logout', auth, async (req, res) => {
+  res.clearCookie('x-access-token').sendStatus(200);
+});
+
 /**
  * @description Register a new user
  */
