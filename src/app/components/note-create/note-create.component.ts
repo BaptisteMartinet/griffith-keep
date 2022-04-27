@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NoteService } from 'src/app/services';
+import { NoteService, SnackbarService } from 'src/app/services';
 import type { NoteCreateArgsT } from 'src/app/services/note.service';
 
 @Component({
@@ -11,7 +11,10 @@ import type { NoteCreateArgsT } from 'src/app/services/note.service';
 export default class NoteCreateComponent implements OnInit {
   public oppened = false;
 
-  constructor(public noteService: NoteService) { }
+  constructor(
+    public noteService: NoteService,
+    private snackbarService: SnackbarService,
+  ) { }
 
   ngOnInit(): void { }
 
@@ -30,5 +33,6 @@ export default class NoteCreateComponent implements OnInit {
       return;
     await this.noteService.createNote(f.value as NoteCreateArgsT);
     f.reset();
+    this.snackbarService.show({ message: 'Note added', type: 'success' }, 3000);
   }
 }
