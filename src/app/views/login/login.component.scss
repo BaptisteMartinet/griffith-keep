@@ -94,10 +94,12 @@
       text-transform: uppercase;
       font-weight: bold;
       transition: .1s ease-in;
+      transition: transform 80ms ease-in;
 
       &:hover {
         background-color: white;
         color: black;
+        transform: scale(1.05);
       }
     }
   }
