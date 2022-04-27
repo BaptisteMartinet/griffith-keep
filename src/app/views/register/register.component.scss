@@ -16,6 +16,14 @@
     flex-direction: column;
     padding: 2em;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    animation-duration: 1.5s;
+    animation-name: fadein;
+
+    @keyframes fadein {
+      from {
+        opacity: 0;
+      }
+    }
 
     .title-container {
       width: 100%;
@@ -63,7 +71,8 @@
     transition: transform 80ms ease-in;
     cursor: pointer;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       transform: scale(1.05);
     }
 
