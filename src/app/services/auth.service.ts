@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 export interface UserT {
+  _id: string,
   firstName: string,
   lastName: string,
   email: string,
