@@ -1,8 +1,9 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const router = express.Router();
+const auth = require('../middlewares/auth.middleware');
 const { User } = require('../models');
+const router = express.Router();
 
 router.get('/currentUser', auth, async (req, res) => {
   const user = await User.findById(req.ctx.userId);
