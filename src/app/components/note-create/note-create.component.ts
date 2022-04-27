@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NoteService } from 'src/app/services';
+import type { NoteCreateArgsT } from 'src/app/services/note.service';
 
 @Component({
   selector: 'app-note-create',
@@ -9,7 +11,7 @@ import { NgForm } from '@angular/forms';
 export default class NoteCreateComponent implements OnInit {
   public closed = true;
 
-  constructor() { }
+  constructor(public noteService: NoteService) { }
 
   ngOnInit(): void { }
 
@@ -22,9 +24,11 @@ export default class NoteCreateComponent implements OnInit {
     this.closed = false;
   }
 
-  onSubmit(f: NgForm) {
-    // TODO create note and clear form
-    console.log(f.value);
+  async onSubmit(f: NgForm) {
     this.closed = true;
+    if (!f.value.body)
+      return;
+    await this.noteService.createNote(f.value as NoteCreateArgsT);
+    f.reset();
   }
 }
