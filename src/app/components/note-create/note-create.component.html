@@ -1,8 +1,8 @@
 <form #f='ngForm' (ngSubmit)="onSubmit(f)">
-  <input type="text" name="title" id="title" placeholder='Title' [hidden]='closed' ngModel>
+  <input type="text" name="title" id="title" placeholder='Title' *ngIf="oppened" ngModel>
   <textarea name="body" id="body" placeholder='Create a note...' rows='1' #ta (input)="autoResizeBody(ta)" (focus)="onBodyFocus()" ngModel></textarea>
-  <input type="datetime-local" name="completionDate" id="completionDate" [hidden]='closed' ngModel>
-  <div class='contols-container' [hidden]="closed">
-    <input type="submit" value="Close" [hidden]="closed">
+  <input type="datetime-local" name="completionDate" id="completionDate" *ngIf="oppened" ngModel>
+  <div class='contols-container' *ngIf="oppened">
+    <input type="submit" value="Close">
   </div>
 </form>

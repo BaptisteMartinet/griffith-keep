@@ -9,7 +9,7 @@ import type { NoteCreateArgsT } from 'src/app/services/note.service';
   styleUrls: ['./note-create.component.scss']
 })
 export default class NoteCreateComponent implements OnInit {
-  public closed = true;
+  public oppened = false;
 
   constructor(public noteService: NoteService) { }
 
@@ -21,11 +21,11 @@ export default class NoteCreateComponent implements OnInit {
   }
 
   onBodyFocus() {
-    this.closed = false;
+    this.oppened = true;
   }
 
   async onSubmit(f: NgForm) {
-    this.closed = true;
+    this.oppened = false;
     if (!f.value.body)
       return;
     await this.noteService.createNote(f.value as NoteCreateArgsT);
