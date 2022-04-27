@@ -28,4 +28,15 @@ router.patch('/:id', auth, async (req, res) => {
   res.sendStatus(200);
 });
 
+router.delete('/:id', auth, async (req, res) => {
+  const { id: noteId } = req.params;
+  const note = await Note.findById(noteId);
+  if (!note)
+    return res.sendStatus(404);
+  if (note.author != req.ctx.userId)
+    return res.sendStatus(403);
+  await note.deleteOne();
+  res.sendStatus(200);
+});
+
 module.exports = router;
