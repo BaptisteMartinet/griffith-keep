@@ -55,9 +55,11 @@ export default class AuthService {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(args),
     });
+    if (!loginRes.ok)
+      return false;
     const loginJson = await loginRes.json();
     this.userSubject.next(loginJson as UserT);
-    return loginRes.ok;
+    return true;
   }
 
   async logout(): Promise<boolean> {
