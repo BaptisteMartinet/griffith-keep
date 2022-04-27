@@ -1,0 +1,3 @@
+<div *ngIf="snackbarState" @myInsertRemoveTrigger [ngClass]="['container', snackbarState.type]" >
+  <span>{{snackbarState.message}}</span>
+</div>

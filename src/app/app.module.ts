@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -9,8 +10,13 @@ import {
   NavbarComponent,
   UserCardComponent,
   NoteCreateComponent,
+  SnackbarComponent,
 } from './components';
-import { AuthService, NoteService } from './services';
+import {
+  AuthService,
+  NoteService,
+  SnackbarService,
+} from './services';
 
 @NgModule({
   declarations: [
@@ -21,13 +27,15 @@ import { AuthService, NoteService } from './services';
     NavbarComponent,
     UserCardComponent,
     NoteCreateComponent,
+    SnackbarComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [ AuthService, NoteService ],
+  providers: [ AuthService, NoteService, SnackbarService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

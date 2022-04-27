@@ -5,6 +5,7 @@ import { AuthService } from './services';
   selector: 'app-root',
   template: `
     <router-outlet></router-outlet>
+    <app-snackbar></app-snackbar>
   `,
 })
 export class AppComponent implements OnInit {
