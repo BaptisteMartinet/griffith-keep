@@ -4,7 +4,10 @@ const { Note } = require('../models');
 const router = express.Router();
 
 router.get('/', auth, async (req, res) => {
-  const notes = await Note.find({ author: req.ctx.user });
+  const notes = await Note.find({ author: req.ctx.user }).populate([
+    { path: 'author', model: 'User' },
+    { path: 'assigned', model: 'User' },
+  ]);
   res.json(notes);
 });
 
