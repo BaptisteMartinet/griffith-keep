@@ -28,7 +28,7 @@ export default class AuthService {
   userSubject: Subject<UserT | null> = new Subject<UserT | null>();
 
   constructor() {
-    this.userSubject.subscribe(value => { this.user = value });
+    this.userSubject.subscribe(value => { this.user = value; });
   }
 
   async loadCurrentUser() {
