@@ -21,9 +21,9 @@ router.patch('/:id', auth, async (req, res) => {
   const note = await Note.findById(noteId);
   if (!note)
     return res.sendStatus(404);
-  if (post.author != req.ctx.userId)
+  if (note.author != req.ctx.userId)
     return res.sendStatus(403);
-  note._doc = { ...note._doc, ...req.body };
+  Object.assign(note, req.body);
   await note.save();
   res.sendStatus(200);
 });
