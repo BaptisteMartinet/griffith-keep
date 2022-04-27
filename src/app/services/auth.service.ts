@@ -32,7 +32,7 @@ export default class AuthService {
   }
 
   async loadCurrentUser() {
-    const userRes = await fetch(`${environment.API_URI}/currentUser`, { credentials: 'include' }).catch();
+    const userRes = await fetch(`${environment.API_URI}/user/currentUser`, { credentials: 'include' }).catch();
     if (!userRes.ok)
       return this.userSubject.next(null);
     const userJson = await userRes.json();
@@ -63,7 +63,7 @@ export default class AuthService {
   }
 
   async logout(): Promise<boolean> {
-    const logoutRes = await fetch(`${environment.API_URI}/logout`, { credentials: 'include' });
+    const logoutRes = await fetch(`${environment.API_URI}/user/logout`, { credentials: 'include' });
     return logoutRes.ok;
   }
 }
