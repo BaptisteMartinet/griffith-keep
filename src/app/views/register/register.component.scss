@@ -71,4 +71,11 @@
       transform: scale(0.95);
     }
   }
+
+  a {
+    font-size: var(--fs-400);
+    margin-top: 2em;
+    align-self: center;
+    color: blue;
+  }
 }
