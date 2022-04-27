@@ -9,7 +9,7 @@
   text-align: center;
 
   &.success {
-    background-color: green;
+    background-color: rgb(0, 173, 72);
   }
 
   &.warning {
@@ -17,7 +17,7 @@
   }
 
   &.error {
-    background-color: red;
+    background-color: rgb(173, 35, 0);
   }
 
   span {
