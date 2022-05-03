@@ -32,12 +32,10 @@ export interface NoteUpdateArgsT {
   providedIn: 'root'
 })
 export default class NoteService {
-  public notes: Array<NoteT> = [];
   public notesSubject = new Subject<Array<NoteT>>();
+  public notesObservable = this.notesSubject.asObservable();
 
-  constructor() {
-    this.notesSubject.subscribe(notes => { this.notes = notes; });
-  }
+  constructor() { }
 
   async loadNotes() {
     const notesRes = await fetch(`${environment.API_URI}/note`, { credentials: 'include' });
