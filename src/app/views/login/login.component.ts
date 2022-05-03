@@ -33,7 +33,7 @@ export default class LoginComponent implements OnInit {
       password,
     });
     if (!loginStatus)
-      return this.snackbarService.show({ message: 'Invalid credentials', type: 'error' }, 2000);
+      return this.snackbarService.show({ message: 'Invalid credentials', type: 'error' });
     this.router.navigate(['/']);
   }
 

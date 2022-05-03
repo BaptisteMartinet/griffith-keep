@@ -27,7 +27,7 @@ export default class RegisterComponent implements OnInit {
   async submitRegister(f: NgForm) {
     const { firstName, lastName, email, password } = f.value;
     if (!firstName || !lastName || !email || !password)
-      return this.snackbarService.show({ message: 'You must fill in all the fields', type: 'warning' }, 2000);
+      return this.snackbarService.show({ message: 'You must fill in all the fields', type: 'warning' }, 'long');
     const registerStatus = await this.authService.register({
       firstName,
       lastName,
@@ -35,7 +35,7 @@ export default class RegisterComponent implements OnInit {
       password,
     });
     if (!registerStatus)
-      return this.snackbarService.show({ message: 'Something went wrong', type: 'error' }, 2000);
+      return this.snackbarService.show({ message: 'Something went wrong', type: 'error' }, 'long');
     this.router.navigate([ 'login' ]);
   }
 }

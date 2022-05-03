@@ -33,6 +33,6 @@ export default class NoteCreateComponent implements OnInit {
       return;
     await this.noteService.createNote(f.value as NoteCreateArgsT);
     f.reset();
-    this.snackbarService.show({ message: 'Note added', type: 'success' }, 3000);
+    this.snackbarService.show({ message: 'Note added', type: 'success' });
   }
 }

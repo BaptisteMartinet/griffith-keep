@@ -6,6 +6,13 @@ export interface SnackbarT {
   type: 'success' | 'warning' | 'error',
 }
 
+export type DurationT = 'short' | 'long';
+
+const Durations = new Map<DurationT, number>([
+  [ 'short', 2000 ],
+  [ 'long', 3000 ],
+]);
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,10 +22,10 @@ export default class SnackbarService {
 
   constructor() { }
 
-  show(args: SnackbarT, duration: number) {
+  show(args: SnackbarT, duration: DurationT = 'short') {
     this.snackbarSubject.next(args);
     setTimeout(() => {
       this.snackbarSubject.next(null);
-    }, duration);
+    }, Durations.get(duration));
   }
 }
