@@ -9,6 +9,6 @@
     </form>
   </div>
   <div class='right-container'>
-    <app-user-card *ngIf="authService.user" [firstName]="authService.user.firstName" [lastName]="authService.user.lastName"></app-user-card>
+    <app-user-card *ngIf="user" [firstName]="user.firstName" [lastName]="user.lastName"></app-user-card>
   </div>
 </div>

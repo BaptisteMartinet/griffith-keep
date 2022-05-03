@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 export interface UserT {
@@ -25,12 +25,10 @@ interface RegisterArgsT {
   providedIn: 'root'
 })
 export default class AuthService {
-  user: UserT | null = null;
-  userSubject: Subject<UserT | null> = new Subject<UserT | null>();
+  private userSubject: Subject<UserT | null> = new Subject<UserT | null>();
+  public userObesrvable: Observable<UserT | null> = this.userSubject.asObservable();
 
-  constructor() {
-    this.userSubject.subscribe(value => { this.user = value; });
-  }
+  constructor() { }
 
   async loadCurrentUser() {
     const userRes = await fetch(`${environment.API_URI}/user/currentUser`, { credentials: 'include' });
