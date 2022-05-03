@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
-import { AuthService } from 'src/app/services';
+import { AuthService, SnackbarService } from 'src/app/services';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +15,7 @@ export default class LoginComponent implements OnInit {
     private titleService: Title,
     private router: Router,
     public authService: AuthService,
+    private snackbarService: SnackbarService,
   ) {
     this.titleService.setTitle('Griffith Keep - Login');
   }
@@ -31,8 +32,9 @@ export default class LoginComponent implements OnInit {
       email,
       password,
     });
-    if (loginStatus)
-      this.router.navigate(['/']);
+    if (!loginStatus)
+      return this.snackbarService.show({ message: 'Invalid credentials', type: 'error' }, 2000);
+    this.router.navigate(['/']);
   }
 
 }

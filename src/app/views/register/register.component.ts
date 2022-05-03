@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
-import { AuthService } from 'src/app/services';
+import { AuthService, SnackbarService } from 'src/app/services';
 
 @Component({
   selector: 'app-register',
@@ -14,9 +14,10 @@ export default class RegisterComponent implements OnInit {
   constructor(
     private titleService: Title,
     private router: Router,
-    public authService: AuthService
+    public authService: AuthService,
+    private snackbarService: SnackbarService,
   ) {
-    titleService.setTitle('Griffith Keep - Register');
+    this.titleService.setTitle('Griffith Keep - Register');
   }
 
   ngOnInit(): void {
@@ -26,14 +27,15 @@ export default class RegisterComponent implements OnInit {
   async submitRegister(f: NgForm) {
     const { firstName, lastName, email, password } = f.value;
     if (!firstName || !lastName || !email || !password)
-      return;
+      return this.snackbarService.show({ message: 'You must fill in all the fields', type: 'warning' }, 2000);
     const registerStatus = await this.authService.register({
       firstName,
       lastName,
       email,
       password,
     });
-    if (registerStatus)
-      this.router.navigate([ 'login' ]);
+    if (!registerStatus)
+      return this.snackbarService.show({ message: 'Something went wrong', type: 'error' }, 2000);
+    this.router.navigate([ 'login' ]);
   }
 }
