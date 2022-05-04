@@ -17,8 +17,8 @@ Griffith Keep is a [Google Keep](https://keep.google.com) clone made at [Griffit
 
 ## Workflow
  - use `ng generate module module-name` to create a module
- - use `ng generate component component-name` to create a component
- - use `ng generate service service-name` to create a service
+ - use `ng generate component components/component-name` to create a component
+ - use `ng generate service services/service-name` to create a service
  - Commit your work with git:
 ```
 git add ./src/
