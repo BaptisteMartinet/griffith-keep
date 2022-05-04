@@ -13,7 +13,7 @@ Griffith Keep is a [Google Keep](https://keep.google.com) clone made at [Griffit
  - Clone the project
  - Copy past `.env.example` to simply `.env`
  - Run the server using `node server.js` in a separated prompt
- - Run the project using `ng serve --open`
+ - Run the application using `ng serve --open`
 
 ## Workflow
  - use `ng generate module module-name` to create a module
