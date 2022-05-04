@@ -2,6 +2,11 @@
 
 Griffith Keep is a [Google Keep](https://keep.google.com) clone made at [Griffith College Dublin](https://www.griffith.ie/).
 
+## Stack
+ - [Angular](https://angular.io/)
+ - [Express](https://expressjs.com/)
+ - [MongoDB](https://www.mongodb.com/)
+
 ## Setup steps
  - Install [MongoDB](https://www.mongodb.com/)
  - [Setup the Angular CLI](https://angular.io/guide/setup-local)
