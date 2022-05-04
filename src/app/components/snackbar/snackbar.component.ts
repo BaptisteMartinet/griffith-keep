@@ -12,10 +12,10 @@ import type { SnackbarT } from 'src/app/services/snackbar.service';
     trigger('myInsertRemoveTrigger', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('200ms', style({ opacity: 1 })),
+        animate('300ms', style({ opacity: 1 })),
       ]),
       transition(':leave', [
-        animate('200ms', style({ opacity: 0 }))
+        animate('300ms', style({ opacity: 0 }))
       ])
     ]),
   ]
