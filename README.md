@@ -12,6 +12,7 @@ Griffith Keep is a [Google Keep](https://keep.google.com) clone made at [Griffit
  - [Setup the Angular CLI](https://angular.io/guide/setup-local)
  - Clone the project
  - Copy past `.env.example` to simply `.env`
+ - Run `npm install`
  - Run the server using `node server.js` in a separated prompt
  - Run the application using `ng serve --open`
 
