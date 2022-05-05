@@ -20,7 +20,6 @@ form {
     word-wrap: break-word;
     background: none;
     color: white;
-    font-weight: bold;
     font-size: var(--fs-400);
     resize: none;
 
@@ -48,8 +47,44 @@ form {
 
   .contols-container {
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
+    justify-content: space-between;
+    margin-top: .5em;
+
+    .controls {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: .2em;
+
+      .pinned-span {
+        display: inline-block;
+        width: 26px;
+        height: 26px;
+        background: transparent url('/assets/icons/thumbtack/idle.svg') no-repeat center center;
+        background-size: cover;
+        padding: 0;
+        margin: 0;
+      }
+
+      #pinned:checked + .pinned-span {
+        background: transparent url('/assets/icons/thumbtack/activated.svg') no-repeat center center;
+        background-size: cover;
+      }
+
+      #assign-btn {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background: transparent url('/assets/icons/add-group-white.png') no-repeat center center;
+        background-size: cover;
+        border: none;
+        outline: none;
+        padding: 0;
+        margin-left: .5em;
+      }
+    }
 
     input[type=submit] {
       font-size: var(--fs-400);

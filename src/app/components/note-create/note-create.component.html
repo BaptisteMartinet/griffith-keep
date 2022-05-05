@@ -3,6 +3,15 @@
   <textarea name="body" id="body" placeholder='Create a note...' rows='1' #ta (input)="autoResizeBody(ta)" (focus)="onBodyFocus()" ngModel></textarea>
   <input type="datetime-local" name="completionDate" id="completionDate" *ngIf="oppened" ngModel>
   <div class='contols-container' *ngIf="oppened">
+    <ul class="controls">
+      <li>
+        <label for="pinned">
+          <input type="checkbox" name="pinned" id="pinned" style="display: none;" />
+          <span class="pinned-span"></span>
+        </label>
+      </li>
+      <li><a id="assign-btn"></a></li>
+    </ul>
     <input type="submit" value="Close">
   </div>
 </form>
