@@ -11,6 +11,6 @@ export default class UserCardComponent implements OnInit {
   public initials!: string;
 
   ngOnInit(): void {
-    this.initials = this.firstName.charAt(0) + this.lastName.charAt(0);
+    this.initials = this.firstName.toUpperCase().charAt(0) + this.lastName.toUpperCase().charAt(0);
   }
 }
