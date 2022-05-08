@@ -1,14 +1,14 @@
-<div class='container'>
-  <div class='left-container'>
-    <a href="/" class='logo-link'>
+<div class="container">
+  <div class="left-container">
+    <a href="/" class="logo-link">
       <img src="/assets/griffith-keep-logo-file.png" alt="app logo" />
       <span>Keep</span>
     </a>
-    <form #f='ngForm' (ngSubmit)="onSubmit(f)" novalidate>
-      <input type="search" name="search" id="search" placeholder='Search' ngModel>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <input type="search" name="search" id="search" placeholder="Search" ngModel>
     </form>
   </div>
-  <div class='right-container'>
+  <div class="right-container">
     <app-user-card *ngIf="user" [firstName]="user.firstName" [lastName]="user.lastName"></app-user-card>
   </div>
 </div>
