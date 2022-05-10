@@ -8,7 +8,7 @@ Griffith Keep is a [Google Keep](https://keep.google.com) clone made at [Griffit
  - [MongoDB](https://www.mongodb.com/)
 
 ## Setup steps
- - Install [MongoDB](https://www.mongodb.com/)
+ - Install [MongoDB Compass](https://www.mongodb.com/try/download/compass)
  - [Setup the Angular CLI](https://angular.io/guide/setup-local)
  - Clone the project
  - Copy past `.env.example` to simply `.env`
