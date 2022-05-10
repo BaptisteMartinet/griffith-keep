@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API_URI: 'https://griffith-keep-api.vercel.app/',
+  API_URI: 'https://griffith-keep-api.vercel.app/api',
 };
