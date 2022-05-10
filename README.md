@@ -10,11 +10,17 @@ Griffith Keep is a [Google Keep](https://keep.google.com) clone made at [Griffit
 ## Setup steps
  - Install [MongoDB Community](https://www.mongodb.com/try/download/community?tck=docs_server)
  - [Setup the Angular CLI](https://angular.io/guide/setup-local)
- - Clone the project
+
+Backend setup:
+ - Clone the backend `git clone https://github.com/BaptisteMartinet/griffith-keep-api`
  - Copy past `.env.example` to simply `.env`
  - Run `npm install`
- - Run the server using `node server.js` in a separated prompt
- - Run the application using `ng serve --open`
+ - Run `npm start`
+
+Frontend setup:
+ - Clone the frontend `git clone git@github.com:BaptisteMartinet/griffith-keep.git`
+ - Run `npm install`
+ - Run the application using `npm start` or `ng serve --open`
 
 ## Workflow
  - use `ng generate component components/component-name` to create a component
