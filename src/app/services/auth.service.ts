@@ -31,7 +31,7 @@ export default class AuthService {
   constructor() { }
 
   async loadCurrentUser() {
-    const userRes = await fetch(`${environment.API_URI}/user/currentUser`, { credentials: 'include' });
+    const userRes = await fetch(`${environment.API_URI}/account/currentUser`, { credentials: 'include' });
     if (!userRes.ok)
       return this.userSubject.next(null);
     const userJson = await userRes.json();
@@ -39,7 +39,7 @@ export default class AuthService {
   }
 
   async register(args: RegisterArgsT): Promise<boolean> {
-    const registerRes = await fetch(`${environment.API_URI}/user/register`, {
+    const registerRes = await fetch(`${environment.API_URI}/account/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(args),
@@ -48,7 +48,7 @@ export default class AuthService {
   }
 
   async login(args: LoginArgsT): Promise<boolean> {
-    const loginRes = await fetch(`${environment.API_URI}/user/login`, {
+    const loginRes = await fetch(`${environment.API_URI}/account/login`, {
       method: 'POST',
       credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
@@ -62,7 +62,7 @@ export default class AuthService {
   }
 
   async logout(): Promise<boolean> {
-    const logoutRes = await fetch(`${environment.API_URI}/user/logout`, { credentials: 'include' });
+    const logoutRes = await fetch(`${environment.API_URI}/account/logout`, { credentials: 'include' });
     return logoutRes.ok;
   }
 }
