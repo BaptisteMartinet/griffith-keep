@@ -117,13 +117,19 @@
         font-size: var(--fs-500);
         text-transform: uppercase;
         font-weight: bold;
+        outline: none;
         transition: .1s ease-in;
         transition: transform 80ms ease-in;
 
-        &:hover {
+        &:hover,
+        &:focus {
           background-color: white;
           color: black;
           transform: scale(1.05);
+        }
+
+        &:active {
+          transform: scale(0.95);
         }
       }
     }
