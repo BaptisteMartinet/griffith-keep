@@ -21,7 +21,7 @@ export default class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.userObesrvable.subscribe(user => { if (user) this.router.navigate([ '/' ]); });
+    this.authService.userObesrvable.subscribe(user => { if (user) window.location.replace('/'); });
   }
 
   async submitRegister(f: NgForm) {

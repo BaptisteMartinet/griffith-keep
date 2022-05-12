@@ -21,7 +21,7 @@ export default class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authService.userObesrvable.subscribe(user => { if (user) this.router.navigate(['/']); });
+    this.authService.userObesrvable.subscribe(user => { if (user) window.location.replace('/'); });
   }
 
   public async submitLogin(f: NgForm) {
@@ -34,7 +34,6 @@ export default class LoginComponent implements OnInit {
     });
     if (!loginStatus)
       return this.snackbarService.show({ message: 'Invalid credentials', type: 'error' });
-    this.router.navigate(['/']);
   }
 
 }
