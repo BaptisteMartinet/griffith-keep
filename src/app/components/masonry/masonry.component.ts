@@ -9,6 +9,7 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
   @ViewChild('container') container!: ElementRef<HTMLDivElement>;
   private wrappers: Array<HTMLDivElement> = [];
   private columnWidth = 240;
+  private lastElementCount = 0;
 
   constructor() { }
 
@@ -17,6 +18,8 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
+    if (!this.checkUpdate()) // Hacky solution to remove unused divs due to how Angular works
+      return;
     const childrenCopy: Array<ChildNode> = [];
     this.container.nativeElement.childNodes.forEach(child => { childrenCopy.push(child); });
     childrenCopy.forEach(child => {
@@ -32,6 +35,17 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
       this.wrappers.push(newDiv);
     });
     this.computeWrappers();
+  }
+
+  private checkUpdate() {
+    if (this.container.nativeElement.childElementCount === this.lastElementCount)
+      return false;
+    if (this.wrappers.length > 0) {
+      this.wrappers.forEach(wrapper => { wrapper.remove(); });
+      this.wrappers = [];
+    }
+    this.lastElementCount = this.container.nativeElement.childElementCount;
+    return true;
   }
 
   private computeWrappers() {
