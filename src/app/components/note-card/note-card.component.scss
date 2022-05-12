@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+  width: 256px;
+  height: fit-content;
+  border: 1px solid #5f6368;
+  border-radius: 8px;
+  padding: 1em;
+
+  h1 {
+    font-size: var(--fs-500);
+  }
+
+  p {
+    margin-top: .5em;
+    font-size: var(--fs-400);
+  }
+}

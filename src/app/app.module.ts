@@ -10,6 +10,7 @@ import {
   NavbarComponent,
   UserCardComponent,
   NoteCreateComponent,
+  NoteCardComponent,
   SnackbarComponent,
 } from './components';
 import {
@@ -27,6 +28,7 @@ import {
     NavbarComponent,
     UserCardComponent,
     NoteCreateComponent,
+    NoteCardComponent,
     SnackbarComponent,
   ],
   imports: [
