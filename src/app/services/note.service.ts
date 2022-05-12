@@ -5,7 +5,7 @@ import { UserT } from './auth.service';
 
 export interface NoteT {
   author: UserT,
-  assigned: Array<UserT>,
+  assignee: Array<UserT>,
   title: string,
   body: string,
   pinned: boolean,
@@ -13,7 +13,7 @@ export interface NoteT {
 }
 
 export interface NoteCreateArgsT {
-  assigned?: Array<string>,
+  assigneeEmailsStr?: string,
   title?: string,
   body: string,
   pinned?: boolean,
@@ -21,7 +21,7 @@ export interface NoteCreateArgsT {
 }
 
 export interface NoteUpdateArgsT {
-  assigned?: Array<string>,
+  assigneeEmailsStr?: string,
   title?: string,
   body?: string,
   pinned?: boolean,
@@ -54,7 +54,7 @@ export default class NoteService {
     });
     if (!noteRes.ok)
       return;
-    await this.loadNotes(); // Service realoads all the notes when a new one is created (bad practice)
+    await this.loadNotes(); // Service reloads all the notes when a new one is created (bad practice)
   }
 
   async updateNote(id: string, args: NoteUpdateArgsT) {
@@ -64,6 +64,9 @@ export default class NoteService {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(args),
     });
+    if (!res.ok)
+      return;
+    await this.loadNotes();
   }
 
   async deleteNote(noteId: string) {
