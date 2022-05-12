@@ -12,6 +12,7 @@ import {
   NoteCreateComponent,
   NoteCardComponent,
   SnackbarComponent,
+  MasonryComponent,
 } from './components';
 import {
   AuthService,
@@ -30,6 +31,7 @@ import {
     NoteCreateComponent,
     NoteCardComponent,
     SnackbarComponent,
+    MasonryComponent,
   ],
   imports: [
     BrowserModule,
