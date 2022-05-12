@@ -2,9 +2,14 @@ main {
   padding-top: 64px;
 }
 
-.section-note-create {
+.note-create-section {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2em 0;
+}
+
+.notes-section {
+  margin-top: 1em;
+  padding: 0 1em;
 }

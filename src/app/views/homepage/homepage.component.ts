@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { AuthService } from 'src/app/services';
+import { AuthService, NoteService } from 'src/app/services';
+import { MasonryComponent } from 'src/app/components';
+import type { NoteT } from 'src/app/services/note.service';
 
 @Component({
   selector: 'app-homepage',
@@ -9,17 +11,23 @@ import { AuthService } from 'src/app/services';
   styleUrls: ['./homepage.component.scss']
 })
 export default class HomepageComponent implements OnInit {
+  public notes: Array<NoteT> = [];
 
   constructor(
     private titleService: Title,
     private router: Router,
-    public authService: AuthService,
+    private authService: AuthService,
+    private noteService: NoteService,
   ) {
     this.titleService.setTitle('Griffith Keep');
   }
 
   ngOnInit(): void {
-    this.authService.userObesrvable.subscribe(user => { if (!user) this.router.navigate([ 'login' ]); });
+    this.authService.userObesrvable.subscribe(user => { if (!user) this.router.navigate(['login']); });
+    this.noteService.notesObservable.subscribe(notes => {
+      this.notes = notes;
+    });
+    this.noteService.loadNotes();
   }
 
 }

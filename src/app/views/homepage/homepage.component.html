@@ -1,9 +1,11 @@
 <app-navbar></app-navbar>
 <main>
-  <section class='section-note-create'>
+  <section class='note-create-section'>
     <app-note-create></app-note-create>
   </section>
-  <section>
-    [ masonry here ]
+  <section class='notes-section'>
+    <app-masonry #masonry >
+      <app-note-card *ngFor="let note of notes" title="{{note.title}}" body="{{note.body}}" id="masonry-element"></app-note-card>
+    </app-masonry>
   </section>
 </main>
