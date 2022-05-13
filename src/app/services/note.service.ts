@@ -72,7 +72,7 @@ export default class NoteService {
 
   async deleteNote(noteId: string) {
     const res = await fetch(`${environment.API_URI}/note/${noteId}`, {
-      method: 'DEL',
+      method: 'DELETE',
       credentials: 'include',
     });
     if (!res.ok)
