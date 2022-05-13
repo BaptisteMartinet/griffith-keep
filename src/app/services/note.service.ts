@@ -38,8 +38,8 @@ export default class NoteService {
 
   constructor() { }
 
-  async loadNotes() {
-    const notesRes = await fetch(`${environment.API_URI}/note`, { credentials: 'include' });
+  async loadNotes(searchTerm?: string) {
+    const notesRes = await fetch(`${environment.API_URI}/note${searchTerm ? `?searchTerm=${searchTerm}` : ''}`, { credentials: 'include' });
     if (!notesRes.ok)
       return;
     const notes: Array<NoteT> = await notesRes.json();
