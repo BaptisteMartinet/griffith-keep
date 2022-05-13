@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NoteT } from 'src/app/services/note.service';
 
 @Component({
   selector: 'app-note-card',
@@ -6,12 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./note-card.component.scss']
 })
 export default class NoteCardComponent implements OnInit {
-  @Input() title!: string;
-  @Input() body!: string;
+  @Input() note!: NoteT;
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
