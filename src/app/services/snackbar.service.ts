@@ -6,11 +6,12 @@ export interface SnackbarT {
   type: 'success' | 'warning' | 'error',
 }
 
-export type DurationT = 'short' | 'long';
+export type DurationT = 'short' | 'long' | 'extra_long';
 
 const Durations = new Map<DurationT, number>([
   [ 'short', 2000 ],
   [ 'long', 3000 ],
+  [ 'extra_long', 5000 ],
 ]);
 
 @Injectable({

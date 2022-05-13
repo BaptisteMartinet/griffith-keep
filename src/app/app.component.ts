@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './services';
+import { AuthService, SnackbarService } from './services';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +10,13 @@ import { AuthService } from './services';
 })
 export class AppComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private snackbarService: SnackbarService) { }
 
   async ngOnInit() {
-    await this.authService.loadCurrentUser();
+    try {
+      await this.authService.loadCurrentUser();
+    } catch {
+      this.snackbarService.show({ message: 'Unable to fetch from the server. Please retry in 30 seconds.', type: 'warning' }, 'extra_long');
+    }
   }
 }
