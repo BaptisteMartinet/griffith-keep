@@ -27,6 +27,8 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
+    if (!this.hasChildCountChanged())
+      return;
     this.reloadWrappers();
     this.computeWrappersPositions();
   }
@@ -41,8 +43,6 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
 
   private reloadWrappers() {
     if (!this.container.nativeElement.hasChildNodes())
-      return;
-    if (!this.hasChildCountChanged())
       return;
     const childrenCopy: Array<ChildNode> = [];
     this.container.nativeElement.childNodes.forEach(child => { childrenCopy.push(child); });
