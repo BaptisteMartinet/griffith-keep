@@ -1,8 +1,7 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { AuthService, NoteService } from 'src/app/services';
-import { MasonryComponent } from 'src/app/components';
 import type { NoteT } from 'src/app/services/note.service';
 
 @Component({
@@ -28,6 +27,10 @@ export default class HomepageComponent implements OnInit {
       this.notes = notes;
     });
     this.noteService.loadNotes();
+  }
+  
+  noteTrackBy(index: number, note: NoteT) {
+    return note._id;
   }
 
 }
