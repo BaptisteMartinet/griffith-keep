@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, ViewChild, AfterViewChecked } from '@angular/core';
 
 @Component({
   selector: 'app-masonry',
@@ -7,60 +7,82 @@ import { Component, OnInit, ElementRef, ViewChild, AfterViewChecked } from '@ang
 })
 export default class MasonryComponent implements OnInit, AfterViewChecked {
   @ViewChild('container') container!: ElementRef<HTMLDivElement>;
-  private wrappers: Array<HTMLDivElement> = [];
-  private columnWidth = 240;
+  @Input() columnWidth: number = 240;
+  @Input() padding: number = 8;
   private lastElementCount = 0;
+  private wrapperElementName = '_wrapper-element';
+  private lastWindowResizeTime = Date.now();
+  private refreshRate = 100;
 
   constructor() { }
 
   ngOnInit(): void {
-    window.onresize = () => { this.computeWrappers(); };
+    window.onresize = () => {
+      const currentTime = Date.now();
+      if (currentTime - this.lastWindowResizeTime <= this.refreshRate)
+        return;
+      this.computeWrappersPositions();
+      this.lastWindowResizeTime = currentTime;
+    };
   }
 
   ngAfterViewChecked(): void {
-    if (!this.checkUpdate()) // Hacky solution to remove unused divs due to how Angular works
+    this.reloadWrappers();
+    this.computeWrappersPositions();
+  }
+
+  private hasChildCountChanged() {
+    const currentElementCount = this.container.nativeElement.childElementCount;
+    if (currentElementCount === this.lastElementCount)
+      return false;
+    this.lastElementCount = currentElementCount;
+    return true;
+  }
+
+  private reloadWrappers() {
+    if (!this.container.nativeElement.hasChildNodes())
+      return;
+    if (!this.hasChildCountChanged())
       return;
     const childrenCopy: Array<ChildNode> = [];
     this.container.nativeElement.childNodes.forEach(child => { childrenCopy.push(child); });
     childrenCopy.forEach(child => {
-      if ((child as HTMLElement).id !== 'masonry-element')
+      if (child.nodeType !== Node.ELEMENT_NODE)
         return;
+      if ((child as HTMLElement).id === this.wrapperElementName) {
+        if (!child.hasChildNodes())
+          child.remove();
+        return;
+      }
       const newDiv = document.createElement('div');
+      newDiv.id = this.wrapperElementName;
       newDiv.style.position = 'absolute';
       newDiv.style.width = `${this.columnWidth}px`;
-      newDiv.style.padding = '.5em';
+      newDiv.style.padding = `${this.padding}px`;
       newDiv.style.transition = '150ms';
       newDiv.appendChild(child);
       this.container.nativeElement.appendChild(newDiv);
-      this.wrappers.push(newDiv);
     });
-    this.computeWrappers();
   }
 
-  private checkUpdate() {
-    if (this.container.nativeElement.childElementCount === this.lastElementCount)
-      return false;
-    if (this.wrappers.length > 0) {
-      this.wrappers.forEach(wrapper => { wrapper.remove(); });
-      this.wrappers = [];
-    }
-    this.lastElementCount = this.container.nativeElement.childElementCount;
-    return true;
-  }
-
-  private computeWrappers() {
+  private computeWrappersPositions() {
+    if (!this.container.nativeElement.hasChildNodes())
+      return;
     const { width: containerWidth } = this.container.nativeElement.getBoundingClientRect();
     const nbColumns = Math.floor(containerWidth / this.columnWidth);
     const offsetX = containerWidth % this.columnWidth * 0.5;
     const columnsHeights = new Array<number>(nbColumns);
     columnsHeights.fill(0);
 
-    this.wrappers.forEach((wrapper, idx) => {
+    this.container.nativeElement.childNodes.forEach((node, idx) => {
+      const nodeElement: HTMLElement = node as HTMLElement;
+      if (nodeElement.id !== this.wrapperElementName)
+        return;
       const columnIdx = idx % nbColumns;
       const posX = offsetX + columnIdx * this.columnWidth;
       const posY = columnsHeights[columnIdx];
-      wrapper.style.transform = `translate(${posX}px, ${posY}px)`;
-      const { height } = wrapper.getBoundingClientRect();
+      nodeElement.style.transform = `translate(${posX}px, ${posY}px)`;
+      const { height } = nodeElement.getBoundingClientRect();
       columnsHeights[columnIdx] += height;
     });
 
