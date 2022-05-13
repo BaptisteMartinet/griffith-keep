@@ -54,6 +54,13 @@ form {
     }
   }
 
+  #assigneeEmailsStr {
+    background-color: #2f3035;
+    border-radius: 8px;
+    font-size: var(--fs-300);
+    margin-bottom: .5em;
+  }
+
   .contols-container {
     display: flex;
     align-items: center;
