@@ -5,6 +5,7 @@ import { AuthService, SnackbarService } from './services';
   selector: 'app-root',
   template: `
     <router-outlet></router-outlet>
+    <app-note-update-dialog></app-note-update-dialog>
     <app-snackbar></app-snackbar>
   `,
 })
