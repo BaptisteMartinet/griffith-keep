@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NoteService, SnackbarService } from 'src/app/services';
-import type { NoteCreateArgsT } from 'src/app/services/note.service';
+import { NoteService, SnackbarService } from '../../services';
+import type { NoteCreateArgsT } from '../../services/note.service';
 
 @Component({
   selector: 'app-note-create',

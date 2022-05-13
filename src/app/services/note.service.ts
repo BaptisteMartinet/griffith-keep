@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { UserT } from './auth.service';
+import { environment } from '../../environments/environment';
+import { UserT } from '../services/auth.service';
 
 export interface NoteT {
   _id: string,

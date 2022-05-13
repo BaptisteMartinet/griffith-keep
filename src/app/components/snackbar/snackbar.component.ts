@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { trigger, transition, animate, style, state } from '@angular/animations';
 import { Subscription } from 'rxjs';
-import { SnackbarService } from 'src/app/services';
-import type { SnackbarT } from 'src/app/services/snackbar.service';
+import { SnackbarService } from '../../services';
+import type { SnackbarT } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-snackbar',

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
-import { AuthService, SnackbarService } from 'src/app/services';
+import { AuthService, SnackbarService } from '../../services';
 
 @Component({
   selector: 'app-login',
