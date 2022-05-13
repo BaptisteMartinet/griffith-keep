@@ -4,8 +4,8 @@
     <app-note-create></app-note-create>
   </section>
   <section class='notes-section'>
-    <app-masonry #masonry >
-      <app-note-card *ngFor="let note of notes; trackBy:noteTrackBy" title="{{note.title}}" body="{{note.body}}"></app-note-card>
+    <app-masonry #masonry>
+      <app-note-card *ngFor="let note of notes; trackBy:noteTrackBy" [note]="note"></app-note-card>
     </app-masonry>
   </section>
 </main>
