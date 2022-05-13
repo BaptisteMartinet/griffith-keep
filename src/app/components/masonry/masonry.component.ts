@@ -73,8 +73,9 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
     const offsetX = containerWidth % this.columnWidth * 0.5;
     const columnsHeights = new Array<number>(nbColumns);
     columnsHeights.fill(0);
+    let idx = 0;
 
-    this.container.nativeElement.childNodes.forEach((node, idx) => {
+    this.container.nativeElement.childNodes.forEach((node) => {
       const nodeElement: HTMLElement = node as HTMLElement;
       if (nodeElement.id !== this.wrapperElementName)
         return;
@@ -84,6 +85,7 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
       nodeElement.style.transform = `translate(${posX}px, ${posY}px)`;
       const { height } = nodeElement.getBoundingClientRect();
       columnsHeights[columnIdx] += height;
+      idx++;
     });
 
     const maxColumnHeigth = Math.max(...columnsHeights);
