@@ -9,7 +9,6 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
   @ViewChild('container') container!: ElementRef<HTMLDivElement>;
   @Input() columnWidth: number = 240;
   @Input() padding: number = 8;
-  private lastElementCount = 0;
   private wrapperElementName = '_wrapper-element';
   private lastWindowResizeTime = Date.now();
   private refreshRate = 100;
@@ -27,18 +26,8 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    if (!this.hasChildCountChanged())
-      return;
     this.reloadWrappers();
     this.computeWrappersPositions();
-  }
-
-  private hasChildCountChanged() {
-    const currentElementCount = this.container.nativeElement.childElementCount;
-    if (currentElementCount === this.lastElementCount)
-      return false;
-    this.lastElementCount = currentElementCount;
-    return true;
   }
 
   private reloadWrappers() {
