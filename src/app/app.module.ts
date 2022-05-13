@@ -5,11 +5,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HomepageComponent, RegisterComponent, LoginComponent } from './views';
+import {
+  HomepageComponent,
+  RegisterComponent,
+  LoginComponent,
+} from './views';
 import {
   NavbarComponent,
   UserCardComponent,
   NoteCreateComponent,
+  NoteUpdateComponent,
+  NoteUpdateDialogComponent,
   NoteCardComponent,
   SnackbarComponent,
   MasonryComponent,
@@ -18,6 +24,7 @@ import {
   AuthService,
   NoteService,
   SnackbarService,
+  NoteUpdateDialogService,
 } from './services';
 
 @NgModule({
@@ -32,6 +39,8 @@ import {
     NoteCardComponent,
     SnackbarComponent,
     MasonryComponent,
+    NoteUpdateComponent,
+    NoteUpdateDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +48,7 @@ import {
     AppRoutingModule,
     FormsModule,
   ],
-  providers: [ AuthService, NoteService, SnackbarService ],
+  providers: [ AuthService, NoteService, SnackbarService, NoteUpdateDialogService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,5 @@
 :host {
-  width: 600px;
-
-  @media (max-width: 40em) {
-    & {
-      width: 100%;
-    }
-  }
+  width: 40%;
 }
 
 form {
@@ -16,6 +10,7 @@ form {
   box-shadow: 0 3px 5px rgb(0 0 0 / 20%);
   border-radius: 8px;
   border: 1px solid #5f6368;
+  background-color: #202124;
 
   input[type=text],
   textarea {
@@ -89,15 +84,14 @@ form {
         background-size: cover;
       }
 
-      #assign-btn {
+      #delete-btn {
         display: inline-block;
-        width: 24px;
-        height: 24px;
-        background: transparent url('/assets/icons/add-group-white.png') no-repeat center center;
+        width: 26px;
+        height: 26px;
+        background: transparent url('/assets/icons/delete-white.png') no-repeat center center;
         background-size: cover;
         border: none;
         outline: none;
-        padding: 0;
         margin-left: .5em;
       }
     }

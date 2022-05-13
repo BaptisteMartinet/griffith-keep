@@ -6,8 +6,12 @@
   border: 1px solid #5f6368;
   border-radius: 8px;
   word-wrap: break-word;
+  transition: 200ms;
+  user-select: none;
 
   &:hover {
+    border-color: #a0a0a0;
+    
     .pinned-icon {
       opacity: 1;
     }

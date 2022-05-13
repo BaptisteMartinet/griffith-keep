@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NoteUpdateDialogService } from 'src/app/services';
 import { NoteT } from 'src/app/services/note.service';
 
 @Component({
@@ -9,8 +10,12 @@ import { NoteT } from 'src/app/services/note.service';
 export default class NoteCardComponent implements OnInit {
   @Input() note!: NoteT;
 
-  constructor() { }
+  constructor(private noteUpdateDialogService: NoteUpdateDialogService) { }
 
   ngOnInit(): void { }
+
+  onClick() {
+    this.noteUpdateDialogService.showDialog(this.note);
+  }
 
 }
