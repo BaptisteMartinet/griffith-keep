@@ -14,7 +14,7 @@ export default class NavbarComponent implements OnInit {
   constructor(private authService: AuthService, private noteService: NoteService) { }
 
   ngOnInit(): void {
-      this.authService.userObesrvable.subscribe(u => { this.user = u });
+    this.authService.userObesrvable.subscribe(u => { this.user = u });
   }
 
   onSubmit(f: NgForm) {
