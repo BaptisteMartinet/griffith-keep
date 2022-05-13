@@ -10,6 +10,7 @@ import type { NoteCreateArgsT } from 'src/app/services/note.service';
 })
 export default class NoteCreateComponent implements OnInit {
   public oppened = false;
+  public displayAssignee = false;
 
   constructor(
     public noteService: NoteService,
@@ -27,12 +28,25 @@ export default class NoteCreateComponent implements OnInit {
     this.oppened = true;
   }
 
+  toggleAssignee() {
+    this.displayAssignee = !this.displayAssignee;
+  }
+
   async onSubmit(f: NgForm) {
     this.oppened = false;
     if (!f.value.body)
       return;
-    await this.noteService.createNote(f.value as NoteCreateArgsT);
+    this.displayAssignee = false;
+
+    const args: NoteCreateArgsT = {
+      title: f.value.title || undefined,
+      body: f.value.body,
+      completionDate: f.value.completionDate || undefined,
+      pinned: f.value.pinned || undefined,
+      assigneeEmailsStr: f.value.assigneeEmailsStr || undefined,
+    }
     f.reset();
+    await this.noteService.createNote(args);
     this.snackbarService.show({ message: 'Note added', type: 'success' });
   }
 }
