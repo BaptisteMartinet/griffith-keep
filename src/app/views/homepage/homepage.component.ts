@@ -10,7 +10,9 @@ import type { NoteT } from 'src/app/services/note.service';
   styleUrls: ['./homepage.component.scss']
 })
 export default class HomepageComponent implements OnInit {
+  public pinnedNotes: Array<NoteT> = [];
   public notes: Array<NoteT> = [];
+  public expiredNotes: Array<NoteT> = [];
 
   constructor(
     private titleService: Title,
@@ -24,11 +26,21 @@ export default class HomepageComponent implements OnInit {
   ngOnInit(): void {
     this.authService.userObesrvable.subscribe(user => { if (!user) this.router.navigate(['login']); });
     this.noteService.notesObservable.subscribe(notes => {
-      this.notes = notes;
+      this.pinnedNotes = [];
+      this.notes = [];
+      this.expiredNotes = [];
+      notes.forEach(note => {
+        if (note.completionDate && new Date(note.completionDate).getTime() - new Date().getTime() < 0)
+          this.expiredNotes.push(note);
+        else if (note.pinned)
+          this.pinnedNotes.push(note);
+        else
+          this.notes.push(note);
+      });
     });
     this.noteService.loadNotes();
   }
-  
+
   noteTrackBy(index: number, note: NoteT) {
     return note._id;
   }

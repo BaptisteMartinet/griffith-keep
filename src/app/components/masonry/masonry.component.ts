@@ -17,13 +17,13 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
   constructor() { }
 
   ngOnInit(): void {
-    window.onresize = () => {
+    window.addEventListener('resize', () => {
       const currentTime = Date.now();
       if (currentTime - this.lastWindowResizeTime <= this.refreshRate)
         return;
       this.computeWrappersPositions();
       this.lastWindowResizeTime = currentTime;
-    };
+    });
   }
 
   ngAfterViewChecked(): void {
