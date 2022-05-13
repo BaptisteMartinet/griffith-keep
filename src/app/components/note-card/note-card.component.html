@@ -4,4 +4,7 @@
   <p [innerText]="note.body"></p>
   <input *ngIf="note.completionDate" type="datetime" name="completionDate" id="completionDate"
     [value]="note.completionDate" disabled>
+  <ul *ngIf="note.assignee?.length" class="asignee-list">
+    <li *ngFor="let assignee of note.assignee">{{assignee.firstName}} {{assignee.lastName}}</li>
+  </ul>
 </div>
