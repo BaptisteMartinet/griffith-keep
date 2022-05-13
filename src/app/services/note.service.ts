@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { UserT } from './auth.service';
 
 export interface NoteT {
+  _id: string,
   author: UserT,
   assignee: Array<UserT>,
   title: string,
