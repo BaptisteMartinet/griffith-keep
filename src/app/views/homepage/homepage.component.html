@@ -5,7 +5,7 @@
   </section>
   <section class='notes-section'>
     <app-masonry #masonry >
-      <app-note-card *ngFor="let note of notes" title="{{note.title}}" body="{{note.body}}" id="masonry-element"></app-note-card>
+      <app-note-card *ngFor="let note of notes; trackBy:noteTrackBy" title="{{note.title}}" body="{{note.body}}"></app-note-card>
     </app-masonry>
   </section>
 </main>
