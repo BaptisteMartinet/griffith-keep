@@ -37,17 +37,22 @@ export interface NoteUpdateArgsT {
   providedIn: 'root'
 })
 export default class NoteService {
-  public notesSubject = new Subject<Array<NoteT>>();
+  private notesSubject = new Subject<Array<NoteT>>();
   public notesObservable = this.notesSubject.asObservable();
+
+  private notesLoadingSubject = new Subject<boolean>();
+  public notesLoadingObservable = this.notesLoadingSubject.asObservable();
 
   constructor() { }
 
   async loadNotes(searchTerm?: string) {
+    this.notesLoadingSubject.next(true);
     const notesRes = await fetch(`${environment.API_URI}/note${searchTerm ? `?searchTerm=${searchTerm}` : ''}`, { credentials: 'include' });
     if (!notesRes.ok)
       return;
     const notes: Array<NoteT> = await notesRes.json();
     this.notesSubject.next(notes);
+    this.notesLoadingSubject.next(false);
   }
 
   async createNote(args: NoteCreateArgsT) {
