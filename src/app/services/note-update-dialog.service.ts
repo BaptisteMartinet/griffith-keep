@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { NoteT } from '../services/note.service';
 
+/**
+ * @description A service that manage the opening/closing
+ * of a dialog apearing to update a certain note.
+ */
 @Injectable({
   providedIn: 'root'
 })

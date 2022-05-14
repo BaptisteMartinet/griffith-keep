@@ -21,6 +21,10 @@ interface RegisterArgsT {
   password: string,
 }
 
+/**
+ * @description This service handles everything authtication related
+ * by exposing four methods loadCurrentUser, register, login, and logout
+ */
 @Injectable({
   providedIn: 'root'
 })
