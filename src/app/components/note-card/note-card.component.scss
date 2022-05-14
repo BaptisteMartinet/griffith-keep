@@ -1,6 +1,14 @@
+:host {
+  position: absolute;
+  width: 240px;
+  padding: .5em;
+  transition: 150ms;
+}
+
 .container {
   position: relative;
   width: 100%;
+  height: fit-content;
   padding: 1em;
   background-color: #202124;
   border: 1px solid #5f6368;
