@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NoteUpdateDialogService } from 'src/app/services';
-import { NoteT } from 'src/app/services/note.service';
+import { NoteUpdateDialogService } from '../../services';
+import { NoteT } from '../../services/note.service';
 
 @Component({
   selector: 'app-note-update-dialog',

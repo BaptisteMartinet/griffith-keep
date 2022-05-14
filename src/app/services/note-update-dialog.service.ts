@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { NoteT } from './note.service';
+import { NoteT } from '../services/note.service';
 
 @Injectable({
   providedIn: 'root'

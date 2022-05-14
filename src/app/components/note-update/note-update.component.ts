@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NoteService, NoteUpdateDialogService } from 'src/app/services';
-import type { UserT } from 'src/app/services/auth.service';
-import type { NoteT, NoteUpdateArgsT } from 'src/app/services/note.service';
+import { NoteService, NoteUpdateDialogService } from '../../services';
+import type { UserT } from '../../services/auth.service';
+import type { NoteT, NoteUpdateArgsT } from '../../services/note.service';
 
 @Component({
   selector: 'app-note-update',

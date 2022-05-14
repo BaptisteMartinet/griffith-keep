@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService, NoteService } from 'src/app/services';
-import type { UserT } from 'src/app/services/auth.service';
+import { AuthService, NoteService } from '../../services';
+import type { UserT } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',

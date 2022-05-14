@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { AuthService, NoteService } from 'src/app/services';
-import type { NoteT } from 'src/app/services/note.service';
+import { AuthService, NoteService } from '../../services';
+import type { NoteT } from '../../services/note.service';
 
 @Component({
   selector: 'app-homepage',
