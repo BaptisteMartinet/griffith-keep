@@ -47,7 +47,7 @@ export default class NoteUpdateComponent implements OnInit {
       title: f.value.title || undefined,
       body: f.value.body,
       completionDate: f.value.completionDate || undefined,
-      pinned: f.value.pinned || undefined,
+      pinned: f.value.pinned || false,
       assigneeEmailsStr: f.value.assigneeEmailsStr || undefined,
     }
     f.reset();
