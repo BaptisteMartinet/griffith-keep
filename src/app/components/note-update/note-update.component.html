@@ -1,7 +1,7 @@
 <form #f='ngForm' (ngSubmit)="onSubmit(f)">
   <input type="text" name="title" id="title" placeholder="Title" [(ngModel)]="note.title">
-  <textarea name="body" id="body" placeholder='Create a note...' rows="1" #ta (input)="autoResizeBody(ta)"
-    [(ngModel)]="note.body"></textarea>
+  <textarea name="body" id="body" placeholder='Create a note...' rows="4" #ta (input)="autoResizeBody(ta)"
+    (focus)="autoResizeBody(ta)" [(ngModel)]="note.body"></textarea>
   <input type="datetime-local" name="completionDate" id="completionDate" [defaultValue]="2010-05-05"
     [(ngModel)]="note.completionDate">
   <input type="text" name="assigneeEmailsStr" id="assigneeEmailsStr" placeholder="email1@domain.com;email2@domain.ie"
@@ -16,6 +16,9 @@
       </li>
       <li><a id="delete-btn" (click)="deleteNote()"></a></li>
     </ul>
-    <input type="submit" value="Close">
+    <div class="btns">
+      <input type="submit" value="Update">
+      <a class="close-btn" (click)="closeDialog()">Close</a>
+    </div>
   </div>
 </form>

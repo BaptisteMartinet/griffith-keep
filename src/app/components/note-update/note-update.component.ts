@@ -37,14 +37,12 @@ export default class NoteUpdateComponent implements OnInit {
 
   async deleteNote() {
     await this.noteService.deleteNote(this._note._id);
-    this.noteUpdateDialogService.closeDialog();
+    this.closeDialog();
   }
 
   async onSubmit(f: NgForm) {
-    if (!f.value.body) {
-      this.noteUpdateDialogService.closeDialog();
-      return;
-    }
+    if (!f.value.body)
+      return this.closeDialog();
     const args: NoteUpdateArgsT = {
       title: f.value.title || undefined,
       body: f.value.body,
@@ -54,6 +52,10 @@ export default class NoteUpdateComponent implements OnInit {
     }
     f.reset();
     await this.noteService.updateNote(this._note._id, args);
+    this.closeDialog();
+  }
+
+  closeDialog() {
     this.noteUpdateDialogService.closeDialog();
   }
 
