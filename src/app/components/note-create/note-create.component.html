@@ -1,9 +1,9 @@
-<form #f='ngForm' (ngSubmit)="onSubmit(f)">
-  <input type="text" name="title" id="title" placeholder='Title' *ngIf="oppened" ngModel>
-  <textarea name="body" id="body" placeholder='Create a note...' rows="1" #ta (input)="autoResizeBody(ta)" (focus)="onBodyFocus()" ngModel></textarea>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <input type="text" name="title" id="title" placeholder="Title" *ngIf="oppened" ngModel>
+  <textarea name="body" id="body" placeholder="Create a note..." rows="1" #ta (input)="autoResizeBody(ta)" (focus)="onBodyFocus()" ngModel></textarea>
   <input type="datetime-local" name="completionDate" id="completionDate" *ngIf="oppened" ngModel>
   <input type="text" name="assigneeEmailsStr" id="assigneeEmailsStr" placeholder="email1@domain.com;email2@domain.ie" *ngIf="oppened && displayAssignee" ngModel>
-  <div class='contols-container' *ngIf="oppened">
+  <div class="contols-container" *ngIf="oppened">
     <ul class="controls">
       <li>
         <label for="pinned">
