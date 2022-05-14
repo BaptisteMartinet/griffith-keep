@@ -1,6 +1,6 @@
 # Griffith Keep
 
-Griffith Keep is a [Google Keep](https://keep.google.com) clone made at [Griffith College Dublin](https://www.griffith.ie/).
+[Griffith Keep](https://griffith-keep.vercel.app/) is a [Google Keep](https://keep.google.com) clone made at [Griffith College Dublin](https://www.griffith.ie/).
 
 ## Stack
  - [Angular](https://angular.io/)

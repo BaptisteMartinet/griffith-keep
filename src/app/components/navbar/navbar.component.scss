@@ -77,8 +77,17 @@
     }
   }
 
-  .rightContainer {
+  .right-container {
     display: flex;
     align-items: center;
+
+    .logout-btn {
+      margin-left: 2em;
+      width: 28px;
+      height: 28px;
+      background: transparent url('/assets/icons/exit_white.png') no-repeat center center;
+      background-size: cover;
+      cursor: pointer;
+    }
   }
 }

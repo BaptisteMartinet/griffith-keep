@@ -20,4 +20,10 @@ export default class NavbarComponent implements OnInit {
   onSubmit(f: NgForm) {
     this.noteService.loadNotes(f.value.search);
   }
+
+  async onLogoutClick() {
+    const logoutRes = await this.authService.logout();
+    if (logoutRes)
+      window.location.replace('/');
+  }
 }
