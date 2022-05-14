@@ -15,7 +15,7 @@ export default class NoteUpdateComponent implements OnInit {
   private _note!: NoteT;
   @Input()
   set note(value: NoteT) {
-    this._note = value;
+    this._note = { ...value };
     this.emails = this._note.assignee?.reduce((prev: string, curr: UserT) => (prev += `${curr.email};`), '');
   }
   get note(): NoteT {
