@@ -18,9 +18,6 @@ export default class NavbarComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
-    const searchTerm = f.value.search;
-    if (!searchTerm)
-      return;
-    this.noteService.loadNotes(searchTerm);
+    this.noteService.loadNotes(f.value.search);
   }
 }
