@@ -7,22 +7,22 @@
   <section class="notes-section">
     <div *ngIf="pinnedNotes.length">
       <h3>pinned</h3>
-      <app-masonry>
-        <app-note-card *ngFor="let note of pinnedNotes; trackBy:noteTrackBy" [note]="note"></app-note-card>
+      <app-masonry itemName="masonry-item" [columnWidth]="240">
+        <app-note-card *ngFor="let note of pinnedNotes; trackBy:noteTrackBy" [note]="note" id="masonry-item"></app-note-card>
       </app-masonry>
     </div>
 
     <div *ngIf="notes.length">
       <h3>notes</h3>
-      <app-masonry>
-        <app-note-card *ngFor="let note of notes; trackBy:noteTrackBy" [note]="note"></app-note-card>
+      <app-masonry itemName="masonry-item" [columnWidth]="240">
+        <app-note-card *ngFor="let note of notes; trackBy:noteTrackBy" [note]="note" id="masonry-item"></app-note-card>
       </app-masonry>
     </div>
 
     <div *ngIf="expiredNotes.length">
       <h3>expired</h3>
-      <app-masonry>
-        <app-note-card *ngFor="let note of expiredNotes; trackBy:noteTrackBy" [note]="note"></app-note-card>
+      <app-masonry itemName="masonry-item" [columnWidth]="240">
+        <app-note-card *ngFor="let note of expiredNotes; trackBy:noteTrackBy" [note]="note" id="masonry-item"></app-note-card>
       </app-masonry>
     </div>
   </section>
