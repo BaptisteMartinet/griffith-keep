@@ -10,5 +10,6 @@
   </div>
   <div class="right-container">
     <app-user-card *ngIf="user" [firstName]="user.firstName" [lastName]="user.lastName"></app-user-card>
+    <a class="logout-btn" (click)="onLogoutClick()"></a>
   </div>
 </div>
