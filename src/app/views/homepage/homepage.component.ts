@@ -23,6 +23,10 @@ export default class HomepageComponent implements OnInit {
     this.titleService.setTitle('Griffith Keep');
   }
 
+  /**
+   * @description Load all the note into three differente container
+   * each time they've been updated.
+   */
   ngOnInit(): void {
     this.authService.userObesrvable.subscribe(user => { if (!user) this.router.navigate(['login']); });
     this.noteService.notesObservable.subscribe(notes => {

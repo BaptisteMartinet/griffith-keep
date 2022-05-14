@@ -29,6 +29,10 @@ export interface NoteUpdateArgsT {
   completionDate?: Date,
 }
 
+/**
+ * @description This service handles everything note related
+ * It exposes four methods: loadNotes, createNote, updateNote and deleteNote.
+ */
 @Injectable({
   providedIn: 'root'
 })

@@ -14,6 +14,10 @@ const Durations = new Map<DurationT, number>([
   [ 'extra_long', 5000 ],
 ]);
 
+/**
+ * @description A service to manage weither or not
+ * the application snackbar should be shown.
+ */
 @Injectable({
   providedIn: 'root'
 })

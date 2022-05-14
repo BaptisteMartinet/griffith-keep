@@ -1,5 +1,8 @@
 import { Component, OnInit, ElementRef, Input, ViewChild, AfterViewChecked } from '@angular/core';
-
+/**
+ * @description This is a custom component I made to emulate a masonry layout
+ * Learn more at https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout/
+ */
 @Component({
   selector: 'app-masonry',
   templateUrl: './masonry.component.html',
