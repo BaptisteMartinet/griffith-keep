@@ -60,7 +60,7 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: .5em;
+    margin-top: 1em;
 
     .controls {
       list-style: none;
@@ -79,7 +79,7 @@ form {
         margin: 0;
       }
 
-      #pinned:checked + .pinned-span {
+      #pinned:checked+.pinned-span {
         background: transparent url('/assets/icons/thumbtack/activated.svg') no-repeat center center;
         background-size: cover;
       }
@@ -96,19 +96,25 @@ form {
       }
     }
 
-    input[type=submit] {
-      font-size: var(--fs-400);
-      padding: .5em 1em;
-      border-radius: 4px;
-      outline: none;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
+    .btns {
+      display: flex;
+      align-items: center;
 
-    input[type=submit]:active {
-      background-color: rgba(255, 255, 255, 0.137);
+      input[type=submit],
+      .close-btn {
+        font-size: var(--fs-400);
+        padding: .5em 1em;
+        border-radius: 4px;
+        outline: none;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+
+        &:active {
+          background-color: rgba(255, 255, 255, 0.137);
+        }
+      }
     }
   }
 }
