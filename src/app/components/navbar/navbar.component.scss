@@ -82,7 +82,7 @@
     align-items: center;
 
     .loading-btn {
-      margin-right: 2em;
+      margin-inline: 1em;
       display: inline-block;
       width: 28px;
       height: 28px;
@@ -114,8 +114,12 @@
       }
     }
 
+    .user-card {
+      margin-inline: 1em;
+    }
+
     .logout-btn {
-      margin-left: 2em;
+      margin-inline: 1em;
       width: 24px;
       height: 24px;
       background: transparent url('/assets/icons/exit_white.png') no-repeat center center;
