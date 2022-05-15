@@ -23,10 +23,10 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    this.computeWrappersPositions();
+    this.computePositions();
   }
 
-  private computeWrappersPositions() {
+  private computePositions() {
     if (!this.container.nativeElement.hasChildNodes())
       return;
     const items = this.container.nativeElement.querySelectorAll<HTMLElement>(`#${this.itemName}`);
