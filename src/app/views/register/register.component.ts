@@ -18,11 +18,10 @@ export default class RegisterComponent implements OnInit {
     private snackbarService: SnackbarService,
   ) {
     this.titleService.setTitle('Griffith Keep - Register');
-  }
-
-  ngOnInit(): void {
     this.authService.userObesrvable.subscribe(user => { if (user) window.location.replace('/'); });
   }
+
+  ngOnInit(): void { }
 
   async submitRegister(f: NgForm) {
     const { firstName, lastName, email, password } = f.value;
@@ -36,6 +35,6 @@ export default class RegisterComponent implements OnInit {
     });
     if (!registerStatus)
       return this.snackbarService.show({ message: 'Something went wrong', type: 'error' }, 'long');
-    this.router.navigate([ 'login' ]);
+    this.router.navigate(['login']);
   }
 }
