@@ -18,7 +18,7 @@ export default class MasonryComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     // Hacky solution to trigger ngAfterViewChecked and refresh the masonry
-    // when the window is resized
+    // when window is resized
     window.addEventListener('resize', () => { });
   }
 
