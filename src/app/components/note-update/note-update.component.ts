@@ -25,10 +25,9 @@ export default class NoteUpdateComponent implements OnInit {
   constructor(
     private noteUpdateDialogService: NoteUpdateDialogService,
     private noteService: NoteService,
-    ) { }
+  ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
   autoResizeBody(ta: any) {
     ta.style.height = 'auto';

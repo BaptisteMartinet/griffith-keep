@@ -24,11 +24,11 @@ export default class SnackbarComponent implements OnInit, OnDestroy {
   private snackbarSubscription: Subscription | null = null;
   public snackbarState: SnackbarT | null = null;
 
-  constructor(public snackbarService: SnackbarService) { }
-
-  ngOnInit(): void {
+  constructor(public snackbarService: SnackbarService) {
     this.snackbarSubscription = this.snackbarService.snackbarObservable.subscribe(state => { this.snackbarState = state });
   }
+
+  ngOnInit(): void { }
 
   ngOnDestroy(): void {
     this.snackbarSubscription?.unsubscribe();

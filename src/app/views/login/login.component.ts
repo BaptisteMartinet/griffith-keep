@@ -18,11 +18,10 @@ export default class LoginComponent implements OnInit {
     private snackbarService: SnackbarService,
   ) {
     this.titleService.setTitle('Griffith Keep - Login');
-  }
-
-  ngOnInit(): void {
     this.authService.userObesrvable.subscribe(user => { if (user) window.location.replace('/'); });
   }
+
+  ngOnInit(): void { }
 
   public async submitLogin(f: NgForm) {
     const { email, password } = f.value;
