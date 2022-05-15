@@ -10,10 +10,9 @@ import { NoteT } from '../../services/note.service';
 export default class NoteUpdateDialogComponent implements OnInit {
   public note: NoteT | null = null;
 
-  constructor(private noteUpdateDialogService: NoteUpdateDialogService) { }
-
-  ngOnInit(): void {
+  constructor(private noteUpdateDialogService: NoteUpdateDialogService) {
     this.noteUpdateDialogService.noteObservanle.subscribe(val => { this.note = val; });
   }
 
+  ngOnInit(): void { }
 }

@@ -21,14 +21,8 @@ export default class HomepageComponent implements OnInit {
     private noteService: NoteService,
   ) {
     this.titleService.setTitle('Griffith Keep');
-  }
-
-  /**
-   * @description Load all the note into three differente container
-   * each time they've been updated.
-   */
-  ngOnInit(): void {
     this.authService.userObesrvable.subscribe(user => { if (!user) this.router.navigate(['login']); });
+    // Load all notes into three different containers
     this.noteService.notesObservable.subscribe(notes => {
       this.pinnedNotes = [];
       this.notes = [];
@@ -42,11 +36,13 @@ export default class HomepageComponent implements OnInit {
           this.notes.push(note);
       });
     });
+  }
+
+  ngOnInit(): void {
     this.noteService.loadNotes();
   }
 
   noteTrackBy(index: number, note: NoteT) {
     return note._id;
   }
-
 }

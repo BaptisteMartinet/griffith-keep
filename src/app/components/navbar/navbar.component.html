@@ -10,7 +10,7 @@
   </div>
   <div class="right-container">
     <a [ngClass]="{'loading-btn': true, 'spin': notesLoading}" (click)="onReloadNotesClick()"></a>
-    <app-user-card *ngIf="user" [firstName]="user.firstName" [lastName]="user.lastName"></app-user-card>
+    <app-user-card *ngIf="user" class="user-card" [firstName]="user.firstName" [lastName]="user.lastName"></app-user-card>
     <a class="logout-btn" (click)="onLogoutClick()"></a>
   </div>
 </div>

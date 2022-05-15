@@ -15,12 +15,12 @@ export default class NavbarComponent implements OnInit {
   public notesLoading: boolean = false;
   private lastReloadTime: number = Date.now();
 
-  constructor(private authService: AuthService, private noteService: NoteService) { }
-
-  ngOnInit(): void {
+  constructor(private authService: AuthService, private noteService: NoteService) {
     this.authService.userObesrvable.subscribe(u => { this.user = u });
     this.noteService.notesLoadingObservable.subscribe(state => { this.notesLoading = state; });
   }
+
+  ngOnInit(): void { }
 
   onSubmit(f: NgForm) {
     this.noteService.loadNotes(f.value.search);
