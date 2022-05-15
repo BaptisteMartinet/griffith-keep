@@ -66,7 +66,10 @@ export default class AuthService {
   }
 
   async logout(): Promise<boolean> {
-    const logoutRes = await fetch(`${environment.API_URI}/account/logout`, { credentials: 'include' });
+    const logoutRes = await fetch(`${environment.API_URI}/account/logout`, {
+      method: 'POST',
+      credentials: 'include'
+    });
     return logoutRes.ok;
   }
 }
