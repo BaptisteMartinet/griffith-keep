@@ -5,8 +5,9 @@
 
   .fullname-span {
     margin-right: 1em;
+    white-space: nowrap;
 
-    @media (max-width: 80em) {
+    @media (max-width: 60em) {
       & {
         display: none;
       }
