@@ -8,11 +8,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-basis: 1;
   z-index: 1;
 
   .left-container {
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 
     .logo-link {
       display: flex;
@@ -42,10 +45,18 @@
     }
 
     form {
-      margin-left: 5vw;
+      width: 100%;
+      max-width: 600px;
+      margin-left: 2em;
+
+      @media (max-width: 30em) {
+        & {
+          display: none;
+        }
+      }
 
       input[type=search] {
-        width: 600px;
+        width: 100%;
         color: white;
         background-color: #525355;
         border: 1px solid transparent;
@@ -55,31 +66,27 @@
         font-size: 1rem;
         transition: background-color .2s;
 
-        @media (max-width: 80em) {
-          & {
-            width: 50vw;
-          }
+        &::placeholder {
+          color: white;
         }
-      }
 
-      input[type=search]::placeholder {
-        color: white;
-      }
+        &:focus {
+          background-color: white;
+          color: black;
+        }
 
-      input[type=search]:focus {
-        background-color: white;
-        color: black;
-      }
-
-      input[type=search]:focus::placeholder {
-        color: black;
+        &:focus::placeholder {
+          color: black;
+        }
       }
     }
   }
 
   .right-container {
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 
     .loading-btn {
       margin-inline: 1em;
